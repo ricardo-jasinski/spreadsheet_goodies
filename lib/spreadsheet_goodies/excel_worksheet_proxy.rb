@@ -16,7 +16,7 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
     @worksheet_title = worksheet_title_or_index
     @num_header_rows = num_header_rows
 
-    @workbook = case workbook_file_pathname
+    @workbook = case workbook_file_pathname.to_s
     when /\.xls(\.\d+)?$/ then Roo::Excel.new(workbook_file_pathname, file_warning: :ignore)
     when /\.xlsx(\.\d+)?$/ then Roo::Excelx.new(workbook_file_pathname, file_warning: :ignore)
     end
@@ -34,6 +34,8 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
     @rows = rows.collect.with_index do |row, index|
       ExcelWorksheetProxyRow.new(@header_row, index+1, *row)
     end
+
+    self
   end
 
   def [](index)
@@ -55,7 +57,8 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
   end
 
   def add_row(row_data)
-    @rows << CachedExcelWorksheetRow.new(@header_row, *row_data)
+    last_row_number = @rows.count
+    @rows << ExcelWorksheetProxyRow.new(@header_row, last_row_number+1, *row_data)
   end
 
   def spreadsheet
