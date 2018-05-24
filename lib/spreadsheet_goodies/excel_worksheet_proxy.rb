@@ -17,8 +17,8 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
     @num_header_rows = num_header_rows
 
     @workbook = case workbook_file_pathname.to_s
-    when /\.xls(\.\d+)?$/ then Roo::Excel.new(workbook_file_pathname, file_warning: :ignore)
-    when /\.xlsx(\.\d+)?$/ then Roo::Excelx.new(workbook_file_pathname, file_warning: :ignore)
+    when /\.xls[^x]/ then Roo::Excel.new(workbook_file_pathname, file_warning: :ignore)
+    when /\.xlsx/ then Roo::Excelx.new(workbook_file_pathname, file_warning: :ignore)
     end
 
     @worksheet = @workbook.sheet(worksheet_title_or_index)
