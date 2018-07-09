@@ -29,7 +29,7 @@ Or install it yourself as:
 
 Read a Google Spreadsheet:
 ```
-spreadsheet_key = '1UC43X6aZwlWPCnn...'
+spreadsheet_key = '1UC43X6aZwlWPCnn...', '~> 0'#, '~> 1.13.2'
 sheet = SpreadsheetGoodies::GoogleWorksheetProxy.new(spreadsheet_key, 'Relação Lojas').read_from_google_drive
 ```
 

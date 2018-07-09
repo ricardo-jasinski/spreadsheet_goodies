@@ -20,17 +20,9 @@ Gem::Specification.new do |gemspec|
     "  * Access a row's elements using the column titles as keys"
   gemspec.homepage = 'https://github.com/ricardo-jasinski/spreadsheet_goodies'
   gemspec.license = 'Unlicense'
+  gemspec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if gemspec.respond_to?(:metadata)
-    gemspec.metadata['allowed_push_host'] = 'https://rubygems.org'
-  else
-    raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
-  end
-
-  gemspec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  gemspec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   gemspec.bindir = 'exe'
@@ -41,10 +33,9 @@ Gem::Specification.new do |gemspec|
   gemspec.add_development_dependency 'rake', '~> 10.0'
   gemspec.add_development_dependency 'rspec', '~> 3.0'
 
-  gemspec.add_dependency 'axlsx', '~> 0'
-  gemspec.add_dependency 'google_drive', '~> 0'
-  gemspec.add_dependency 'csv', '~> 0'
-  gemspec.add_dependency 'roo', '~> 0' #, '~> 2.7.1'
-  gemspec.add_dependency 'roo-xls', '~> 0'
+  gemspec.add_dependency 'axlsx', '>= 2.0.1'
+  gemspec.add_dependency 'google_drive', '>= 2.1.5'
+  gemspec.add_dependency 'csv', '>= 3.0.0'
+  gemspec.add_dependency 'roo', '>= 1.13.2'
 
 end

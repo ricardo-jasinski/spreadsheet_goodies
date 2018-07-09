@@ -25,6 +25,13 @@ class SpreadsheetGoodies::GoogleWorksheetProxy
     worksheet_contents = read_worksheet.export_as_string.force_encoding('utf-8')
 
     rows = CSV::parse(worksheet_contents)
+
+    if SpreadsheetGoodies.configuration.strip_values_on_read
+      rows = rows.map do |row|
+        row.map {|element| element.try(:strip) }
+      end
+    end
+
     @header_row = rows[@num_header_rows-1]
     @rows = rows.collect.with_index do |row, index|
       GoogleWorksheetProxyRow.new(@header_row, index+1, *row)

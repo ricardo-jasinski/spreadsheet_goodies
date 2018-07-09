@@ -24,7 +24,7 @@ module SpreadsheetGoodies
 
   class Configuration
     attr_accessor :service_account_key_json, :login_method,
-      :google_client_id, :client_secret,  :refresh_token
+      :google_client_id, :client_secret,  :refresh_token, :strip_values_on_read
 
     def initialize
       @login_method = :oauth2
