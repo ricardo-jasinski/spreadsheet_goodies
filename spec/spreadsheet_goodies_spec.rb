@@ -13,6 +13,7 @@ describe SpreadsheetGoodies do
         config.google_client_id = 'MY_CLIENT_ID'
         config.client_secret = 'MY_CLIENT_SECRET'
         config.refresh_token = 'MY_REFRESH_TOKEN'
+        config.strip_values_on_read = true
       end
 
       expect(SpreadsheetGoodies.configuration.service_account_key_json).to eq('{}')
@@ -20,6 +21,7 @@ describe SpreadsheetGoodies do
       expect(SpreadsheetGoodies.configuration.google_client_id ).to eq('MY_CLIENT_ID')
       expect(SpreadsheetGoodies.configuration.client_secret ).to eq('MY_CLIENT_SECRET')
       expect(SpreadsheetGoodies.configuration.refresh_token ).to eq('MY_REFRESH_TOKEN')
+      expect(SpreadsheetGoodies.configuration.strip_values_on_read ).to eq(true)
     end
   end
 end

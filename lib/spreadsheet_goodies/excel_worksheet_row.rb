@@ -1,8 +1,8 @@
-class SpreadsheetGoodies::ExcelWorksheetProxy
+class SpreadsheetGoodies::ExcelWorksheet
 
   # Overload Array#[] to allow reading a cell's contents using its column title
   # as index, e.g.: row['Column Title']
-  class ::ExcelWorksheetProxyRow < Array
+  class ::ExcelWorksheetRow < Array
     attr_reader :header_row, :row_number
 
     # @param header_row [Array] The header cells of the sheet from were the row was taken

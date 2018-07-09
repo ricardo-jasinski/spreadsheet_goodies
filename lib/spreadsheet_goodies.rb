@@ -1,7 +1,7 @@
 require 'spreadsheet_goodies/version'
-require 'spreadsheet_goodies/google_worksheet_proxy'
+require 'spreadsheet_goodies/google_drive_worksheet'
 require 'spreadsheet_goodies/google_drive_connector'
-require 'spreadsheet_goodies/excel_worksheet_proxy'
+require 'spreadsheet_goodies/excel_worksheet'
 require 'roo'
 
 module SpreadsheetGoodies

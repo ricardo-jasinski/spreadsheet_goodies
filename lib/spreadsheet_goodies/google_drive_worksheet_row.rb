@@ -1,8 +1,8 @@
-class SpreadsheetGoodies::GoogleWorksheetProxy
+class SpreadsheetGoodies::GoogleDriveWorksheet
 
   # Sobrecarrega método [] da Array para permitir acessar células passando
   # o título da coluna como índice. Ex: row['Data formal do pedido']
-  class ::GoogleWorksheetProxyRow < Array
+  class ::GoogleDriveWorksheetRow < Array
     attr_reader :header_row, :row_number
 
     def initialize(header_row, sheet_row_number, *args)

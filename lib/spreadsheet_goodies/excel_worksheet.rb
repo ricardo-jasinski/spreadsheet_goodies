@@ -1,9 +1,9 @@
-require_relative 'excel_worksheet_proxy_row'
+require_relative 'excel_worksheet_row'
 
 # A cached copy of an Excel worksheet (a single workbook "tab"), stored as an
 # array of arrays. Individual cells can be accessed by column title, e.g.:
 #   worksheet[0]['A column title']
-class SpreadsheetGoodies::ExcelWorksheetProxy
+class SpreadsheetGoodies::ExcelWorksheet
   attr_reader :rows, :workbook, :worksheet
 
   # @param workbook_file_pathname [String] Full path and filename to Excel workbook document
@@ -30,9 +30,9 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
     # was missed some times.)
     rows = (1..@worksheet.last_row).map {|row_number| @worksheet.row(row_number) }
 
-    # Create the rows cache, made of instances of ExcelWorksheetProxyRow
+    # Create the rows cache, made of instances of ExcelWorksheetRow
     @rows = rows.collect.with_index do |row, index|
-      ExcelWorksheetProxyRow.new(@header_row, index+1, *row)
+      ExcelWorksheetRow.new(@header_row, index+1, *row)
     end
 
     self
@@ -58,7 +58,7 @@ class SpreadsheetGoodies::ExcelWorksheetProxy
 
   def add_row(row_data)
     last_row_number = @rows.count
-    @rows << ExcelWorksheetProxyRow.new(@header_row, last_row_number+1, *row_data)
+    @rows << ExcelWorksheetRow.new(@header_row, last_row_number+1, *row_data)
   end
 
   def spreadsheet

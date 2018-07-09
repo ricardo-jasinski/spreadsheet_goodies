@@ -1,11 +1,11 @@
-require_relative 'google_worksheet_proxy_row'
+require_relative 'google_drive_worksheet_row'
 require 'csv'
 
 # A cached copy of a Google Spreadsheets worksheet (i.e., a single workbook "tab"),
 # stored as an array of arrays. Individual cells can be accessed by column title.
 # Example:
 #   worksheet[0]['A column title']
-class SpreadsheetGoodies::GoogleWorksheetProxy
+class SpreadsheetGoodies::GoogleDriveWorksheet
   attr_reader :rows, :header_row
 
   # @param worksheet_title_or_index [String] Sheet name; if unspecified, the
@@ -34,7 +34,7 @@ class SpreadsheetGoodies::GoogleWorksheetProxy
 
     @header_row = rows[@num_header_rows-1]
     @rows = rows.collect.with_index do |row, index|
-      GoogleWorksheetProxyRow.new(@header_row, index+1, *row)
+      GoogleDriveWorksheetRow.new(@header_row, index+1, *row)
     end
 
     self

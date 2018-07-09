@@ -30,12 +30,12 @@ Or install it yourself as:
 Read a Google Spreadsheet:
 ```
 spreadsheet_key = '1UC43X6aZwlWPCnn...', '~> 0'#, '~> 1.13.2'
-sheet = SpreadsheetGoodies::GoogleWorksheetProxy.new(spreadsheet_key, 'Relação Lojas').read_from_google_drive
+sheet = SpreadsheetGoodies::GoogleDriveWorksheet.new(spreadsheet_key, 'Relação Lojas').read_from_google_drive
 ```
 
 Read an Excel workbook:
 ```
-sheet = SpreadsheetGoodies::ExcelWorksheetProxy.new('~/workbook.xlsx')
+sheet = SpreadsheetGoodies::ExcelWorksheet.new('~/workbook.xlsx')
 ```
 
 Iterate over every data row (i.e., all but the header row) and print the value 
