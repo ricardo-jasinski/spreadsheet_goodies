@@ -27,19 +27,19 @@ Or install it yourself as:
 
 ## Usage
 
-To read a Google Spreadsheet:
+Read a Google Spreadsheet:
 ```
 spreadsheet_key = '1UC43X6aZwlWPCnn...'
 sheet = SpreadsheetGoodies::GoogleWorksheetProxy.new(spreadsheet_key, 'Relação Lojas').read_from_google_drive
 ```
 
-To read an Excel workbook:
+Read an Excel workbook:
 ```
 sheet = SpreadsheetGoodies::ExcelWorksheetProxy.new('~/workbook.xlsx')
 ```
 
-Iterate over every data row (i.e., allbut the header row) and print the value of
-the 'Total' column: 
+Iterate over every data row (i.e., all but the header row) and print the value 
+of a column titled 'Total': 
 ```
 sheet.data_rows.each do |row|
   puts "#{row.row_number} -- #{row['Total']}"

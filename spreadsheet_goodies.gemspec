@@ -10,21 +10,21 @@ Gem::Specification.new do |gemspec|
   gemspec.email = ['jasinski@solvis.com.br']
 
   gemspec.summary = "SpreadsheetGoodies is a collection of tools to help work " +
-    "with spreadsheets in Excel and Google Spreadhseets formats."
+    "with Excel and Google Drive spreadhseets."
   gemspec.description = "SpreadsheetGoodies is a collection of tools to help work " +
-    "with spreadsheets in Excel and Google Spreadhseets formats. It relies " +
-    "heavily on other gems to make the actual work of reading and writing to " +
+    "with Excel and Google Drive spreadhseets. It relies " +
+    "on other gems to do the actual work of reading and writing to " +
     "spreadsheet documents. It main features are:"
-    "  * Read a spreadseet as an array of arrays to allow aceessing its data " +
+    "  * Read a spreadseet to an array of arrays, to allow accessing its data " +
     "    without using the original document"
     "  * Access a row's elements using the column titles as keys"
   gemspec.homepage = 'https://github.com/ricardo-jasinski/spreadsheet_goodies'
-  gemspec.license = 'Unlicense/Public domain'
+  gemspec.license = 'Unlicense'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if gemspec.respond_to?(:metadata)
-    gemspec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    gemspec.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
     raise 'RubyGems 2.0 or newer is required to protect against ' \
       'public gem pushes.'
@@ -41,10 +41,10 @@ Gem::Specification.new do |gemspec|
   gemspec.add_development_dependency 'rake', '~> 10.0'
   gemspec.add_development_dependency 'rspec', '~> 3.0'
 
-  gemspec.add_dependency 'axlsx'
-  gemspec.add_dependency 'google_drive'
-  gemspec.add_dependency 'csv'
-  gemspec.add_dependency 'roo' #, '~> 2.7.1'
-  gemspec.add_dependency 'roo-xls'
+  gemspec.add_dependency 'axlsx', '~> 0'
+  gemspec.add_dependency 'google_drive', '~> 0'
+  gemspec.add_dependency 'csv', '~> 0'
+  gemspec.add_dependency 'roo', '~> 0' #, '~> 2.7.1'
+  gemspec.add_dependency 'roo-xls', '~> 0'
 
 end
