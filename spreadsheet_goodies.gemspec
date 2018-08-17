@@ -6,13 +6,13 @@ require 'spreadsheet_goodies/version'
 Gem::Specification.new do |gemspec|
   gemspec.name = 'spreadsheet_goodies'
   gemspec.version = SpreadsheetGoodies::VERSION
-  gemspec.authors = ['Ricardo Jasinski']
-  gemspec.email = ['jasinski@solvis.com.br']
+  gemspec.authors = ['Ricardo Jasinski', 'Henrique Gubert']
+  gemspec.email = ['jasinski@solvis.com.br', 'guberthenrique@hotmail.com']
 
   gemspec.summary = "SpreadsheetGoodies is a collection of tools to help work " +
-    "with Excel and Google Drive spreadhseets."
+    "with Excel and Google Drive spreadsheets."
   gemspec.description = "SpreadsheetGoodies is a collection of tools to help work " +
-    "with Excel and Google Drive spreadhseets. It relies " +
+    "with Excel and Google Drive spreadsheets. It relies " +
     "on other gems to do the actual work of reading and writing to " +
     "spreadsheet documents. It main features are:"
     "  * Read a spreadseet to an array of arrays, to allow accessing its data " +
