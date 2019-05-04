@@ -16,7 +16,7 @@ module SpreadsheetGoodies::Excel
     end
 
     def add_worksheet(sheet_name)
-      @current_sheet = @workbook.add_worksheet(name: sheet_name)
+      @current_sheet = workbook.add_worksheet(name: sheet_name)
       setup_current_sheet_styles
       freeze_top_row
       @current_sheet
