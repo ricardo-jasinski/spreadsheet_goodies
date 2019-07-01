@@ -1,8 +1,7 @@
 module SpreadsheetGoodies
 
-
-  # Sobrecarrega método [] da Array para permitir acessar células passando
-  # o título da coluna como índice. Ex: row['Data formal do pedido']
+  # Override Array#[] and Array#[]= to allow indexing by the column title.
+  # E.g.: row['Employee name']
   class Row < Array
     attr_reader :header_row, :row_number, :parent_worksheet
 
@@ -14,10 +13,15 @@ module SpreadsheetGoodies
     end
 
     def [](locator)
-      cell_index = (locator.is_a?(String) ? @header_row.index(locator) : locator)
-
-      # queries local cache only
-      super(cell_index)
+      if locator.is_a?(String)
+        if column_index = @header_row.find_index(locator)
+          super(column_index) # queries local cache only
+        else
+          raise "Column with title #{locator} not found in header row"
+        end
+      else
+        super(locator) # queries local cache only
+      end
     end
 
     def []=(locator, value)
