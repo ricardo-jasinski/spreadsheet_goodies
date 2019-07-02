@@ -16,7 +16,7 @@ Gem::Specification.new do |gemspec|
     "on other gems to do the actual work of reading and writing to " +
     "spreadsheet documents. It main features are:"
     "  * Read a spreadseet to an array of arrays, to allow accessing its data " +
-    "    without using the original document"
+    "    without using the original document/file/object"
     "  * Access a row's elements using the column titles as keys"
   gemspec.homepage = 'https://github.com/ricardo-jasinski/spreadsheet_goodies'
   gemspec.license = 'Unlicense'
