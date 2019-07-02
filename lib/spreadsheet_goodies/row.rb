@@ -17,7 +17,7 @@ module SpreadsheetGoodies
         if column_index = @header_row.find_index(locator)
           super(column_index) # queries local cache only
         else
-          raise "Column with title #{locator} not found in header row"
+          raise "Column with title '#{locator}' does not exist in header row"
         end
       else
         super(locator) # queries local cache only
@@ -25,13 +25,20 @@ module SpreadsheetGoodies
     end
 
     def []=(locator, value)
-      cell_index = (locator.is_a?(String) ? @header_row.index(locator) : locator)
+      if locator.is_a?(String)
+        column_index = @header_row.find_index(locator)
+        if column_index.nil?
+          raise "Column with title '#{locator}' does not exist in header row"
+        end
+      else
+        column_index = locator
+      end
 
       # propagates change to real worksheet
-      @parent_worksheet.write_to_cell(@row_number, cell_index+1, value)
+      @parent_worksheet.write_to_cell(@row_number, column_index+1, value)
 
       # updates local cache
-      super(cell_index, value)
+      super(column_index, value)
     end
   end
 end
